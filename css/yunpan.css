@@ -1,0 +1,516 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*云盘*/
+.ypActionBar{height:34px;margin:14px 0;font-size:14px}
+.newFolder{text-align:center;display:inline-block;width:118px;height:32px;line-height:32px;border:solid 1px #99d6ff;border-radius:3px;color:#0099ff;font-size:14px;margin:0 14px}
+.newFolder i{display:inline-block;width:20px;height:19px;background:url(../images/icons.png) no-repeat;background-position:-172px top;vertical-align:middle;margin-right:8px}
+.download{margin-left:14px;width:57px;height:32px;line-height:32px;text-align:center;border:solid 1px #99d6ff;color:#0099ff;border-radius:3px 0 0 3px}
+.move{height:32px;line-height:32px;border:solid 1px #99d6ff;margin-left:-1px;padding:0 15px;color:#0099ff}
+.delete{height:32px;line-height:32px;border:solid 1px #99d6ff;margin-left:-1px;padding:0 15px;color:#0099ff;border-radius:0 3px 3px 0}
+.download:hover,.move:hover,.delete:hover,.newFolder:hover{border-color:#b2e0ff;color:#66c2ff}
+.Horizontal{width:19px;height:19px;background:url(../images/icons.png) no-repeat -143px top;margin-top:6px;margin-left:10px}
+.Arrangement{position:relative;margin-top:8px;cursor:pointer;height:25px;margin-left:12px}
+.Arrangement p{width:25px;height:16px;background:url(../images/icons.png) no-repeat -110px top;}
+.Arrangement .xlStyle{width:70px;top:23px;right:0;display:none}
+.xlStyle{position:absolute;border:solid 1px #cce7ff;border-radius:3px;padding:8px;padding-right:15px;background:#fff;z-index:2}
+.xlStyle li{text-align:center;color:#0099ff;height:30px;line-height:30px;font-size:12px}
+.xlStyle li i{float:left;width:14px;height:9px;margin-top:10px}
+.xlStyle li i.choosed{background:url(../images/icons.png) no-repeat -140px -31px;}
+.Arrangement:hover .xlStyle{display:block}
+.classification{position:relative;margin-top:8px;cursor:pointer;height:28px}
+.classification p{height:17px;line-height:17px;color:#8698b4}
+.classification p i{display:inline-block;width:11px;height:6px;background:url(../images/icons.png) no-repeat left -31px;vertical-align:middle;margin-left:5px}
+.classification .xlStyle{width:60px;top:23px;right:0;display:none}
+.classification:hover .xlStyle{display:block}
+.ypActionBar .search{margin-right:10px;margin-top:8px}
+.allFolder{font-size:14px}
+.allFolder a{color:#666}
+.allFolder a:hover{color:#0099ff}
+.checkbox{display:inline-block;width:14px;height:14px;background:url(../images/icons.png) no-repeat -59px -51px;margin-right:10px;vertical-align:middle}
+.zCheck{background:url(../images/icons.png) no-repeat -84px -51px;}
+.ypTable th{padding:10px;font-weight:normal;font-size:14px;color:#999;border-bottom:solid 1px #e0e0e0}
+.ypTable td{padding:10px;border-bottom:dashed 1px #e0e0e0;color:#808080;}
+.ypTable tr.trBg:hover{background:#f5faff}
+.ypTable tr.trBg:hover td{border-top:sold 1px #e2f1ff;border-bottom:solid 1px #e2f1ff}
+.ypImg{display:inline-block;vertical-align:middle}
+.fileName{font-size:14px;display:inline-block;margin:0 10px}
+.fileOperation{margin-top:8px;display:none}
+.moveTo{display:inline-block;width:20px;height:19px;background:url(../images/icons.png) no-repeat -172px 0;margin:0 10px}
+.fileDownload{display:inline-block;width:20px;height:19px;background:url(../images/icons.png) no-repeat -52px -26px;margin:0 10px}
+.moreOperation{position:relative;height:20px;cursor:pointer}
+.moreOperation i{display:inline-block;width:23px;height:11px;background:url(../images/icons.png) no-repeat -78px -26px;margin:0 10px}
+.moreOperation .xlStyle{display:none;top:19px;width:60px;right:-25px}
+.moreOperation:hover .xlStyle{display:block}
+.editFileName{display:none;margin-left:10px}
+.nameInp{width:172px;height:24px;line-height:24px;border:solid 1px #63c0ff;border-radius:3px;box-shadow:0 0 5px #63c0ff;padding:0 4px}
+.nameCancel{width:22px;height:22px;border:none;cursor:pointer;background:url(../images/icons.png) no-repeat left -48px;margin:0 3px}
+.nameBtn{width:22px;height:22px;border:none;cursor:pointer;background:url(../images/icons.png) no-repeat -28px -48px;margin:0 3px}
+.rightBox{position:absolute;width:78px;border:solid 1px #e1e3e6;background:#fff;text-align:center;border-radius:3px;display:none;padding:5px 0;box-shadow:0 0 5px #e1e3e6}
+.rightBox li{height:24px;line-height:24px;}
+.rightBox li a{color:#6b6b6b}
+.ypTable tr.trBg:hover td .fileOperation{display:block}
+
+/*横排*/
+.yxFile{color:#999;font-size:14px;margin:5px 0}
+.hxList dl{float:left;width:94px;height:106px;border:solid 1px #fff;border-radius:5px;margin-top:10px;padding:8px;text-align:center;cursor:pointer;position:relative;}
+.hxList dl dt{margin-top:16px}
+.hxList dl dd{text-align:center;font-size:13px;margin-top:20px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.ypcheck{position:absolute;width:16px;height:16px;background:url(../images/icons.png) no-repeat -111px -51px;left:8px;top:8px;display:none}
+.hxList dl:hover{background:#ebf2fa;}
+.hxList dl:hover .ypcheck{display:block}
+.hxList dl.ypChecked:hover{border-color:#b2d9ff}
+.hxList dl.ypChecked .ypcheck{background:url(../images/icons.png) no-repeat -139px -51px;}
+.play{position:absolute;width:22px;height:22px;background:url(../images/icons.png) no-repeat -164px -27px;top:40px;left:50%;margin-left:-11px}
+.portrait{display:inline-block;width:20px;height:20px;background:url(../images/icons.png) no-repeat left -79px;margin-top:6px;margin-left:10px}
+
+
+/*回收站*/
+.clearDele{display:inline-block;width:18px;height:18px;background:url(../images/clearDele.png) no-repeat left center;vertical-align:middle;margin-right:8px}
+.ypTable td.colorRed,.colorRed{color:#ff3333}
+.redunction{display:inline-block;width:19px;height:19px;background:url(../images/icons.png) no-repeat -108px -84px;margin:0 10px}
+.deletFile{display:inline-block;width:17px;height:17px;background:url(../images/icons.png) no-repeat -49px 0;margin:0 10px}
+
+
+
+
+
+
+
+
+ 
+
+.sharebackground{display:none;background:rgba(0,0,0,0.8);z-index:99999;position:fixed;width:100%;top:0;left:0;height:100%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.shareShow{
+    display:none;
+    position:absolute;
+    z-index:99999;
+    width:604px;
+    height:480px;
+    background:#fff;
+    border-radius:9px;
+    left:50%;
+    
+    top:50%;
+    margin-left:-302px;
+     margin-top:-240px;
+    overflow:hidden;
+    /* text-shadow: 6px 6px 6px rgb(218, 218, 218); */
+    text-shadow: 6px 6px 6px #dadada;
+    border-radius: 6px;
+    border:1px solid #dadada;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    color:#666666;
+}  
+.shareShow div{
+    text-shadow: none;
+}
+.shareShow .shareTop{
+    width:100%;
+    height:120px;
+    background:#f5faff;
+    border-bottom:1px solid #d6ebff;
+    
+}
+.shareShow .shareTop .shareFolder{
+    padding-top:12px;
+    padding-left:20px;
+    color:#333333;
+}
+.shareShow .shareTop .shareTo {
+     margin-top:12px;
+     margin-left:8px;
+     margin-right:12px;
+     width:100%;
+     height:55px;
+      display:flex;
+      justify-content: space-around;
+      position: relative;
+}
+.shareShow .shareTop  .shareClose {
+     width:15px;
+     height:16px;
+     float:right;
+     margin-top:-23px;
+     margin-right:23px;
+     background: url(../images/icons-1.png)-71px -3px no-repeat;
+      
+}
+.shareShow .shareTop .shareTo .shareFriend{
+    width:56px;
+     height:57px;
+      background: url(../images/icons-1.png) -2px -58px no-repeat;
+    
+}
+.shareShow .shareTop .shareTo .shareLink{
+     width:56px;
+     height:57px;
+     background: url(../images/icons-1.png) -69px -124px no-repeat;
+}
+.shareShow .shareTop  .currentLogo{
+     width:12px;
+     height:12px;
+     border-left: 2px solid #e4f2ff;
+     border-top: 2px solid #e4f2ff;
+    position: absolute;  
+    transform:rotate(45deg);   
+     left: 150px;
+     top:113px;
+     background: white;
+    z-index: 99999;
+}
+.shareShow .shareMiddle{
+    width:100%;
+    height:246px;
+   display:block;
+}
+.shareShow .shareMiddle .maxNum{
+    margin-top:22px;
+    margin-left:13px;
+    
+}
+.shareShow .shareMiddle .maxNum >span{
+    float:right;
+    margin-right:13px;
+
+}
+.shareShow .shareMiddle .maxNum span span{
+     color:#0099ff;
+
+}
+.shareShow .shareMiddle .selectContent{
+    margin-top:4px;
+    margin-left:13px;
+    display:flex;
+}
+.shareShow .shareMiddle .selectContent .leftContent,
+.shareShow .shareMiddle .selectContent .rightContent {
+    width:268px;
+    height:198px;
+   border:1px solid #e0e0e0;
+   overflow: auto;
+}
+.shareShow .shareMiddle .selectContent .rightContent {
+   margin-left:37px;
+}
+.shareShow .shareMiddle .selectContent .leftContent .friends{
+    margin-left:6px;
+    margin-top:7px;
+}
+  .shareShow .shareMiddle .selectContent .leftContent .friends >div:nth-child(2){
+     
+    max-width:180px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap; 
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+   
+} 
+.shareShow .shareMiddle .selectContent .leftContent .friends span{
+    display:inline-block;
+    width:12px;
+    height:17px;
+    margin-right:5px;
+    background:    url(../images/icons-1.png) 1px -2px  no-repeat;
+}
+.shareShow .shareMiddle .selectContent .leftContent .friends .currentSpan{
+    
+    background:    url(../images/icons-1.png) -9px 0px  no-repeat;
+}
+.shareShow .shareMiddle .selectContent .leftContent .friends div:nth-child(2){
+    display:inline-block;
+    
+}
+.shareShow .shareMiddle .selectContent .leftContent .friends >.friends{
+    margin-left:11px;
+    
+}
+.shareShow .shareMiddle .selectContent .leftContent .friends .realFriend{
+    display:flex;
+    margin-left:20px;
+    margin-top:7px;
+   
+}
+.shareShow .shareMiddle .selectContent .leftContent .friends .realFriend span{
+    width:30px;
+    height:30px;
+    margin-right:5px;
+    background:  url(../images/icons-1.png) -2px -20px  no-repeat;
+    
+}
+.shareShow .shareMiddle .selectContent .leftContent .friends .realFriend div{
+    height:30px;
+    margin-top:2px;
+    margin-left:6px;
+    max-width:150px;
+    line-height: 30px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap; 
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    
+}
+.shareShow .shareMiddle .selectContent .rightContent {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+     
+}
+.shareShow .shareMiddle .selectContent .rightContent  .realFriend{
+    display:flex;
+    flex: 0 0 33%;
+    justify-content: center;
+    align-items: center;
+    height:49px;
+    overflow: hidden;
+    
+}
+.shareShow .shareMiddle .selectContent .rightContent  .realFriend span{
+    width:30px;
+    height:30px;
+    background:   url(../images/icons-1.png) -2px -20px  no-repeat;
+}
+.shareShow .shareMiddle .selectContent .rightContent  .realFriend div{
+    height:30px;
+    margin-left:8px;
+    margin-right:5px;
+    line-height: 30px;
+    width:28px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap; 
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    
+}
+
+
+
+.shareShow .shareBtn{
+    height:52px;
+    width: 100%;
+     margin-top:6px;
+
+}
+ 
+.shareShow .shareBtn div{
+   width:90px;
+   height:36px;
+   display:inline-block;
+   border-radius: 3px;
+   text-align: center;
+   line-height: 36px;
+   font-size: 14px;
+  
+}
+.shareShow .shareBtn .shareBtn1{
+    margin-left:352px;
+    color:#ffffff;
+   background: #0099ff;
+}
+.shareShow .shareBtn .shareBtn2{
+    margin-left:38px;
+    color:#666666;
+    background: #e6e6e6;
+}
+
+
+
+.shareShow .shareBottom{
+    height:50px;
+    width:100%;
+    font-size: 14px;
+    text-align: center;
+}
+.shareShow .shareMiddleLink{
+        display:none;
+        width:100%;
+        height:246px;
+         
+}
+.shareShow .shareMiddleLink .shareInfo{
+    margin-top:22px; 
+    margin-left:56px; 
+         
+}
+
+
+.shareShow .shareMiddleLink .shareInfo .shareType .share-open span:nth-child(1),
+.shareShow .shareMiddleLink .shareInfo .shareType .share-encrypt{
+  margin-top:9px;
+}
+.shareShow .shareMiddleLink .shareInfo .shareType .share-open .selectPointer{
+    display: inline-block;
+    width:12px;
+    height:12px;
+   margin-left:18px;
+   margin-right:9px;
+   background:  url(../images/icons-1.png)-44px -3px no-repeat;
+}
+.shareShow .shareMiddleLink .shareInfo .shareType .share-open span:nth-child(3){
+  margin-right:19px;
+}
+.shareShow .shareMiddleLink .shareInfo .shareType .share-open span:nth-child(1){
+  color:#333333;
+}
+
+
+.shareShow .shareMiddleLink .shareInfo .shareType .share-encrypt .selectPointer1{
+    display: inline-block;
+    width:12px;
+    height:12px;
+   margin-left:78px;
+   margin-right:9px;
+   background:  url(../images/icons-1.png)-44px -33px no-repeat;
+}
+.shareShow .shareMiddleLink .shareInfo .shareType .share-encrypt span:nth-child(2){
+    margin-right:19px;
+  }
+
+.shareShow .shareMiddleLink .shareInfo .effectiveTime{
+    margin-top:30px; 
+       
+}
+.shareShow .shareMiddleLink .shareInfo .effectiveTime span:nth-child(1){
+    color:#333333;
+  }
+.shareShow .shareMiddleLink .shareInfo .effectiveTime .selectTime{
+    margin-left:18px;
+    width:96px;
+    height:23px;
+  border-radius: 1px;
+  }
+ 
+.shareShow .shareMiddleLink .shareInfo .effectiveTime .locateSelectBox{
+    display:inline-block;
+   vertical-align: middle;
+  }
+.shareShow .shareMiddleLink .shareInfo .effectiveTime .locateSelectBox .options .currentSelect a {
+      color:#0099ff;
+  }
+.shareShow .shareMiddleLink .shareInfo .effectiveTime .locateSelectBox ul .currentSelect span{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    float:right;
+    margin-right:10px;
+    margin-top:10px;
+   background: url(../images/icons-1.png) -95px -6px no-repeat;
+  }
+
+
+  /* //从方方姐那里复制的 */
+.selectBox{display:inline-block; vertical-align:middle; text-align:left;position:relative; cursor:pointer;width:114px;line-height:23px; height:23px;margin-left:18px;float:left;z-index:56;border-radius:3px;margin-right:5px;border:1px solid #ccc}
+.selectBox p{vertical-align:top; background:url(../images/icons-1.png)-128px 4px no-repeat; height:20px;overflow:hidden;font-size:14px;white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis; overflow: hidden;padding-left:10px; }
+.selectBox ul{width:100%;position:absolute; z-index:58; top:29px; left:-1px; background:#fff;border:1px solid #ccc;  }
+.selectBox ul li{height:28px;line-height:28px;}
+.selectBox ul li a{ display:block;line-height:28px; padding:0 3px;  padding-left:15px; }
+/* .selectBox ul li a:hover{ background-color:#2e88e5; color:#fff;} */
+.selectBox ul li .Lastli{border-bottom:0}
+
+
+ /* 13云盘.html 的上面那部分。 */
+ .panTop{
+ 
+    width:100%;
+    height:139px;
+   background:  #f7fbff;
+   border-bottom: 1px  solid #e5e5e5;
+  } 
+  .panTop .topContent{
+      height:100%;
+      width:100%;
+      display:flex;
+      align-items: center;
+  }
+  .panTop .topContent .chaoxingyunpan{
+    font-family: 'Microsoft YaHei';
+      font-size: 36px;
+      color: #333333;
+      margin-left: 20px;
+  }
+  .panTop .topContent .panImg{
+    width:60px;
+    height:60px;
+    margin-left: 49px;
+    
+    background: url(../images/pan.png) no-repeat;
+  }
+  .panTop .logOut{
+    float:right;
+    margin-right:50px;
+    margin-top:-54px;
+    font-family: 'Microsoft YaHei';
+    font-size: 16px;
+    color: #333333;
+  }
+   
+  .middle{
+    display: flex;
+    
+    width:100%;
+   
+    font-family: 'Microsoft YaHei';
+   font-size: 16px;
+  }
+  .middle .sideContent{
+    flex:1;
+    
+  
+    background: #f3f3f3;
+  
+  }
+  .middle .mainContent{
+    width:1201px;
+    
+  }
+.Footer{
+    /* float: */
+}
+
+
+
+
+
+  
+  .positionFixed{
+    position: fixed;
+    top:0;
+     
+  }
+  .footerPosition{
+    position: fixed;
+    bottom:0;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   

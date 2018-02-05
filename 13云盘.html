@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>13云盘</title>
+<link href="css/global.css" type="text/css" rel="stylesheet"><!--全局样式表-->
+<link href="css/yunpan.css" type="text/css" rel="stylesheet"><!--页面部样式表-->
+<link href="css/left.css" type="text/css" rel="stylesheet">
+
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//文件名、大小、日期排序
+		$(".Arrangement .xlStyle li").click(function(){
+			if($(this).find("i").hasClass("choosed")){
+				$(this).find("i").removeClass("choosed")
+			} else {
+				$(".xlStyle li").find("i").removeClass("choosed")
+				$(this).find("i").addClass("choosed")
+			}
+		})
+		
+		//分类排序
+		$(".classification .xlStyle li").click(function(){
+			if($(this).find("i").hasClass("choosed")){
+				$(this).find("i").removeClass("choosed")
+			} else {
+				$(".xlStyle li").find("i").removeClass("choosed")
+				$(this).find("i").addClass("choosed")
+			}
+		})
+		
+		//选择文件复选框
+		$(".checkbox").click(function(){
+			if($(this).hasClass("zCheck")){
+				$(this).removeClass("zCheck")	
+			} else {
+				$(this).addClass("zCheck")	
+			}
+		})
+		
+		//文件重命名
+		$(".rename").click(function(){
+			$(this).parents(".fileOperation").parent().find(".editFileName").css("display",'inline-block');
+			$(this).parents(".fileOperation").parent().find(".nameInp").select();
+			$(this).parents(".fileOperation").parent().find(".fileName").hide()
+		})
+		
+		
+		$(".ypTable  td").bind("contextmenu", function(){
+			return false;
+		})
+
+		
+  		$(".ypTable  td").mouseup(function(e) {
+           // console.log(e.which);
+            //右键为3
+            if (3 == e.which) {
+                $(".rightBox").show()
+				var xPos = parseInt(e.pageX+12) + "px";  
+                var yPos = e.pageY + "px";  
+                $(".rightBox").css("left", xPos).css("display","block");  
+                $(".rightBox").css("top", yPos);  
+            } else if (1 == e.which) {
+                //左键为1
+               $(".rightBox").hide()
+            }
+        })
+ 		
+	})
+</script>
+</head>
+
+<body>
+
+<div class="panTop">
+    <div class="topContent">
+        <div class="panImg"></div>    
+        <div class="chaoxingyunpan">超星云盘</div>    
+    </div>
+    <div class="logOut">退出登陆</div>  
+</div>
+
+<div class="middle">
+    <div class="sideContent"></div>
+    <div class="mainContent">
+        <div class="wrap956">
+            <!--标题-->
+            <div class="rightTitle">
+                <ul class="rightCz">
+                    <li><a href="#"><i class="instruction"></i>使用说明</a></li>
+                    <li><a href="#"><i class="client"></i>客户端下载</a></li>
+                    <li><a href="#"><i class="recycle"></i>回收站</a></li>
+                </ul>
+                <ul class="fontTitle">
+                    <li class="cur"><a href="javascript:;">我的云盘</a></li>
+                </ul>
+            </div>
+            <!--标题-->
+            <!--操作栏-->
+            <div class="ypActionBar">
+                <a href="#" class="fr Horizontal" title="横向排列"></a>
+                <div class="fr Arrangement">
+                    <p></p>
+                    <ul class="xlStyle">
+                        <li><i class="choosed"></i>文件名</li>
+                        <li><i></i>大小</li>
+                        <li><i></i>日期</li>
+                    </ul>
+                </div>
+                <div class="fr classification">
+                    <p>分类<i></i></p>
+                    <ul class="xlStyle">
+                        <li><i class="choosed"></i>全部</li>
+                        <li><i></i>图片</li>
+                        <li><i></i>音乐</li>
+                        <li><i></i>视频</li>
+                        <li><i></i>文档</li>
+                        <li><i></i>其他</li>
+                    </ul>
+                </div>
+                <div class="search fr">
+                    <input type="text" placeholder="搜索您的文件" class="input">
+                    <input type="submit" class="fr sub" value=" " />
+                </div>
+                <a href="#" class="blueBgBtn fl"><i class="upload"></i>上传</a>
+                <a href="#" class="newFolder fl"><i></i>新建文件夹</a>
+                <a href="#" class="fl download">下载</a>
+                <a href="#" class="fl move">移动</a>
+                <a href="#" class="fl move">重命名</a>
+                <a href="#" class="fl move">分享</a>
+                <a href="#" class="fl delete">删除</a>
+            </div>
+            <!--操作栏-->
+            <p class="allFolder"><a href="#">全部文件</a></p>
+            <table cellpadding="0" cellspacing="0" class="ypTable">
+                <thead>
+                    <th align="left" width="60%"><span class="checkbox"></span>已选择1个文件/文件夹</th>
+                    <th align="center">大小</th>
+                    <th align="center">修改日期</th>
+                </thead>
+                <tbody>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/folder.png"></span>
+                            <a href="#" class="fileName">企业网站模板</a>
+                            <div class="editFileName">
+                                <input type="text" value="企业网站模板" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/folder.png"></span>
+                            <a href="#" class="fileName">企业网站模板</a>
+                            <div class="editFileName">
+                                <input type="text" value="企业网站模板" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/folder.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/excel.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/pdf.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/word.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/video.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/pic.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/music.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                    <tr class="trBg">
+                        <td align="left" valign="middle">
+                            <div class="fr fileOperation">
+                                <div class="fr moreOperation">
+                                    <i></i>
+                                    <ul class="xlStyle">
+                                        <li class="rename">重命名</li>
+                                        <li>分享</li>
+                                        <li>删除</li>
+                                    </ul>
+                                </div>
+                                <a href="javascript:;" class="moveTo" title="移动到"></a>
+                                <a href="javascript:;" class="fileDownload" title="下载"></a>
+                            </div>
+                            <span class="checkbox"></span>
+                            <span class="ypImg"><img src="images/rar.png"></span>
+                            <a href="#" class="fileName">唯美风景</a>
+                            <div class="editFileName">
+                                <input type="text" value="唯美风景" class="nameInp"/>
+                                <input type="button" class="nameCancel"/>
+                                <input type="button" class="nameBtn"/>
+                            </div>
+                        </td>
+                        <td align="center">--</td>
+                        <td align="center">2017-10-12 18:34</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        <!-- 鼠标右键执行以下操作  -->
+            <div class="rightBox">
+                <ul>
+                    <li><a href="#">打开</a></li>
+                    <li><a href="#">下载</a></li>
+                    <li><a href="#">移动</a></li>
+                    <li><a href="#">重命名</a></li>
+                    <li><a href="#">分享</a></li>
+                    <li><a href="#">删除</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="sideContent"></div>
+</div>
+<div class="footer">
+     超星公司版权所有  copyright@2017
+</div>
+
+</body>
+</html>

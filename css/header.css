@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+.header{height:56px;background:#4e5257}
+.logo{margin-top:10px}
+/*登录后*/
+.zt_user { position:relative; float:right; width:106px; height:56px;}
+.zt_u_abs {  height:53px;  margin-top:3px;}
+.zt_u_bg { width:106px; padding-top:5px; padding-bottom:15px; background:url(../images/opacity60.png) repeat; display:none;position: absolute;z-index: 9999;top:56px;}
+.zt_u_bg a { color:#ccc;}
+.zt_u_bg a:hover{text-decoration:underline;}
+.zt_u_b { height:40px; padding-top:13px;}
+.zt_u_pro { border-radius:12px; vertical-align:middle; display:inline}
+.zt_u_name ,.zt_u_x { display:inline-block; height:24px; padding-left:6px; padding-right:22px; background:url(../images/ss_member.png) right -104px no-repeat; color:#fff; line-height:24px; vertical-align:middle;}
+.zt_u_b .h-combox{background:url(../images/ss_member.png) 0px -115px no-repeat;width:10px;height:10px;margin: 6px 0 0 5px;vertical-align: middle;border: none}
+.zt_u_x { background:url(../images/ss_member.png) 51px -104px no-repeat; }
+.zt_u_enter ,.zt_u_exit { padding-left:40px;  line-height:30px;}
+.zt_u_enter { background:url(../images/ss_member.png) 16px 7px no-repeat;}
+.zt_u_exit { background:url(../images/ss_member.png) 16px -20px no-repeat;}
+.zt_user:hover .zt_u_bg{display:block}
+
+/*搜索框*/
+.headerSearch{width:258px;height:32px;border:solid 1px #0099ff;margin-right:43px;margin-top:11px;background:#fff}
+.searchInp{width:210px;border:none;padding:5px 7px;height:22px;line-height:22px;font-size:14px}
+.searchSub{width:33px;height:32px;background:url(../images/zoom.png) no-repeat center #0099ff;border:none;cursor:pointer}
+.searchSub:hover{background-color:#33adff}
