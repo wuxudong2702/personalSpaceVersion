@@ -66,13 +66,20 @@
                $(".rightBox").hide()
             }
         })
- 		
+       $(".newFolder").hover(function(){
+           $(".newFolder  i").css("background",'url(images/newFolder.png) 1px 0px no-repeat');
+       })
+       $(".newFolder").mouseleave(function(){
+           $(".newFolder  i").css("background",'url(images/icons.png) -112px -26px no-repeat ');
+       })
+
+     
 	})
 </script>
 </head>
 
 <body>
-
+<!-- <div class="pppppp"></div> -->
 <div class="panTop">
     <div class="topContent">
         <div class="panImg"></div>    
@@ -121,8 +128,8 @@
                 </div>
                 <div class="search fr">
                     <input type="text" placeholder="搜索您的文件" class="input">
-                    <input type="submit" class="fr sub" value=" " />
-                </div>
+                    <input type="submit" class="fr sub" value=""/>
+                </div> 
                 <a href="#" class="blueBgBtn fl"><i class="upload"></i>上传</a>
                 <a href="#" class="newFolder fl"><i></i>新建文件夹</a>
                 <a href="#" class="fl download">下载</a>

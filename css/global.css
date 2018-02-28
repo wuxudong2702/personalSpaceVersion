@@ -31,6 +31,7 @@ h1,h2,h3,h4,h5,h6{font-size:14px;font-weight:normal;}
 .rightCz{float:right}
 .rightCz li{float:left;margin-top:20px;margin-left:20px;font-size:14px}
 .rightCz li a{color:#0099ff}
+.rightCz li a:hover{color:#66c2ff}
 .rightCz li a i{display:inline-block;vertical-align:middle;margin-right:7px;}
 .recycle{width:17px;height:17px;background:url(../images/icons.png) no-repeat center;background-position:-49px top;}
 .client{width:18px;height:16px;background:url(../images/icons.png) no-repeat center;background-position:-25px top;}

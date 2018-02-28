@@ -4,21 +4,21 @@
 /*云盘*/
 .ypActionBar{height:34px;margin:14px 0;font-size:14px}
 .newFolder{text-align:center;display:inline-block;width:118px;height:32px;line-height:32px;border:solid 1px #99d6ff;border-radius:3px;color:#0099ff;font-size:14px;margin:0 14px}
-.newFolder i{display:inline-block;width:20px;height:19px;background:url(../images/icons.png) no-repeat;background-position:-172px top;vertical-align:middle;margin-right:8px}
+.newFolder i{display:inline-block;width:20px;height:19px;background:url(../images/icons.png) no-repeat;background-position:-112px -26px;vertical-align:middle;margin-right:8px}
 .download{margin-left:14px;width:57px;height:32px;line-height:32px;text-align:center;border:solid 1px #99d6ff;color:#0099ff;border-radius:3px 0 0 3px}
 .move{height:32px;line-height:32px;border:solid 1px #99d6ff;margin-left:-1px;padding:0 15px;color:#0099ff}
 .delete{height:32px;line-height:32px;border:solid 1px #99d6ff;margin-left:-1px;padding:0 15px;color:#0099ff;border-radius:0 3px 3px 0}
 .download:hover,.move:hover,.delete:hover,.newFolder:hover{border-color:#b2e0ff;color:#66c2ff}
-.Horizontal{width:19px;height:19px;background:url(../images/icons.png) no-repeat -143px top;margin-top:6px;margin-left:10px}
-.Arrangement{position:relative;margin-top:8px;cursor:pointer;height:25px;margin-left:12px}
+.Horizontal{width:19px;height:19px;background:url(../images/icons.png) no-repeat -143px top;margin-top:11px;margin-left:10px}
+.Arrangement{position:relative;margin-top:13px;cursor:pointer;height:25px;margin-left:12px}
 .Arrangement p{width:25px;height:16px;background:url(../images/icons.png) no-repeat -110px top;}
 .Arrangement .xlStyle{width:70px;top:23px;right:0;display:none}
-.xlStyle{position:absolute;border:solid 1px #cce7ff;border-radius:3px;padding:8px;padding-right:15px;background:#fff;z-index:2}
-.xlStyle li{text-align:center;color:#0099ff;height:30px;line-height:30px;font-size:12px}
+.xlStyle{position:absolute;border:solid 1px #cce7ff;border-radius:3px; padding:8px;  background:#fff;z-index:2}
+.xlStyle li{text-align: center;  color:#0099ff;height:30px;line-height:30px;font-size:12px}
 .xlStyle li i{float:left;width:14px;height:9px;margin-top:10px}
 .xlStyle li i.choosed{background:url(../images/icons.png) no-repeat -140px -31px;}
 .Arrangement:hover .xlStyle{display:block}
-.classification{position:relative;margin-top:8px;cursor:pointer;height:28px}
+.classification{position:relative;margin-top:12px;cursor:pointer;height:28px}
 .classification p{height:17px;line-height:17px;color:#8698b4}
 .classification p i{display:inline-block;width:11px;height:6px;background:url(../images/icons.png) no-repeat left -31px;vertical-align:middle;margin-left:5px}
 .classification .xlStyle{width:60px;top:23px;right:0;display:none}
@@ -62,7 +62,7 @@
 .hxList dl.ypChecked:hover{border-color:#b2d9ff}
 .hxList dl.ypChecked .ypcheck{background:url(../images/icons.png) no-repeat -139px -51px;}
 .play{position:absolute;width:22px;height:22px;background:url(../images/icons.png) no-repeat -164px -27px;top:40px;left:50%;margin-left:-11px}
-.portrait{display:inline-block;width:20px;height:20px;background:url(../images/icons.png) no-repeat left -79px;margin-top:6px;margin-left:10px}
+.portrait{display:inline-block;width:20px;height:20px;background:url(../images/icons.png) no-repeat left -79px;margin-top:10px;margin-left:10px}
 
 
 /*回收站*/
@@ -82,16 +82,15 @@
 
 .sharebackground{display:none;background:rgba(0,0,0,0.8);z-index:99999;position:fixed;width:100%;top:0;left:0;height:100%}
 
-
-
-
-
-
-
-
-
-
-
+.pppppp{
+    position: fixed;
+    width:800px;
+    height:10px;
+    display:inline-block;
+    background:red;
+    left:400px;
+    top:300px;
+}
 
 
 

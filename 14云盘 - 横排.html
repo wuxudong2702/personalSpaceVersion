@@ -150,12 +150,18 @@
 			$(document).on("click", function() {
 				$(".selectBox ul").slideUp();
 			});
-		
+            $(".newFolder").hover(function(){
+              $(".newFolder  i").css("background",'url(images/newFolder.png) 1px 0px no-repeat');
+                 })
+            $(".newFolder").mouseleave(function(){
+                $(".newFolder  i").css("background",'url(images/icons.png) -112px -26px no-repeat ');
+            })
 	})
 </script>
 </head>
 
 <body>
+    <!-- <div class="pppppp"></div> -->
 
 <div class="shareShow">
 
