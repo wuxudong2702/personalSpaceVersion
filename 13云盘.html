@@ -67,13 +67,32 @@
             }
         })
        $(".newFolder").hover(function(){
-           $(".newFolder  i").css("background",'url(images/newFolder.png) 1px 0px no-repeat');
+           $(".newFolder  i").css("background-position",' -158px -85px');
        })
        $(".newFolder").mouseleave(function(){
-           $(".newFolder  i").css("background",'url(images/icons.png) -112px -26px no-repeat ');
+           $(".newFolder  i").css("background-position",'-112px -26px');
        })
-
-     
+      
+       $(".rightCz li a").hover(function(e){
+           if($(e.target).children("i").hasClass("instruction")){
+            $(".instruction").css("background-position",' 0px -109px');
+           }else if($(e.target).children("i").hasClass("client")){
+            $(".client").css("background-position",'-25px -110px');
+           } else if($(e.target).children("i").hasClass("recycle")){
+            $(".recycle").css("background-position",'0px -136px');
+           }
+           
+       })
+       $(".rightCz li a").mouseleave(function(e){
+        if($(e.target).children("i").hasClass("instruction")){
+            $(".instruction").css("background-position",'left top');
+           }else  if($(e.target).children("i").hasClass("client")){
+            $(".client").css("background-position",'-25px top');
+           }else  if($(e.target).children("i").hasClass("recycle")){
+            $(".recycle").css("background-position",'-49px top');
+           }
+       })
+    
 	})
 </script>
 </head>
