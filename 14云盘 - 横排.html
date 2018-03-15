@@ -1,407 +1,622 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>14云盘-横向</title>
-<link href="css/global.css" type="text/css" rel="stylesheet"><!--全局样式表-->
-<link href="css/yunpan.css" type="text/css" rel="stylesheet"><!--页面部样式表-->
-<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
-<script type="text/javascript">
-	$(function(){
-		//文件名、大小、日期排序
-		$(".Arrangement .xlStyle li").click(function(){
-			if($(this).find("i").hasClass("choosed")){
-				$(this).find("i").removeClass("choosed")
-			} else {
-				$(".xlStyle li").find("i").removeClass("choosed")
-				$(this).find("i").addClass("choosed")
-			}
-		})
-		
-		//分类排序
-		$(".classification .xlStyle li").click(function(){
-			if($(this).find("i").hasClass("choosed")){
-				$(this).find("i").removeClass("choosed")
-			} else {
-				$(".xlStyle li").find("i").removeClass("choosed")
-				$(this).find("i").addClass("choosed")
-			}
-		})
-		
-		//选择文件复选框
-		$(".checkbox").click(function(){
-			if($(this).hasClass("zCheck")){
-				$(this).removeClass("zCheck")	
-			} else {
-				$(this).addClass("zCheck")	
-			}
-		})
-         
-
-       //点击分享出现分析界面。
-		$('.share').click(function(){
-            $('.shareShow').css('display','block');
-        })
-		 
-		$('.shareClose,.shareBtn2').click(function(){
-            $('.shareShow').css('display','none');
-        })
-		 
-
-		
-        //树形结构的展开与收缩
-		$(".friends >span").click(function(){
-              if($(this).hasClass('currentSpan')){
-                 $(this).removeClass('currentSpan') ;
-                 $(this).next().next().css('display','none');       
-              }else{
-                $(this).addClass('currentSpan');
-                if($(this).next().next().hasClass('realFriend')){
-                    $(this).next().next().css('display','flex');  
-                }else{
-                    $(this).next().next().css('display','block');  
-                }    
-              }
-		})
-
-        //发给好友和分享链接的切换
-		$('.shareLink').click(function(){
-           if($(".shareMiddle").css('display')=='block'){
-            $('.shareMiddle').css('display','none');
-            $('.shareMiddleLink').css('display','block');
-            $('.shareFriend').css('background-position','-72px -55px');            
-            $('.shareLink').css('background-position','-2px -121px');
-            $('.currentLogo').css('left','457px')
-           }
-        })
-		$('.shareFriend').click(function(){
-           if($(".shareMiddleLink").css('display')=='block'){
-            $('.shareMiddleLink').css('display','none');
-            $('.shareMiddle').css('display','block');
-            $('.shareFriend').css('background-position','-2px -58px');            
-            $('.shareLink').css('background-position','-69px -124px');
-            $('.currentLogo').css('left','150px')
-           }
-        })
-
-        //分享方式的切换
-        $('.selectPointer').click(function(){       
-            if($(this).css('background-position-y')=='-33px'){
-                $(this).css('background-position-y','-3px');
-                $('.selectPointer1').css('background-position-y','-33px');
-            }
-        })
-        $('.selectPointer1').click(function(){       
-            if($(this).css('background-position-y')=='-33px'){
-                $(this).css('background-position-y','-3px');
-                $('.selectPointer').css('background-position-y','-33px');
-            }
-        })
-        //
-        $('.options li').click(function(){       
-            if(!$(this).hasClass('currentSelect')){
-                $('.options').children('.currentSelect').removeClass('currentSelect');
-                $(this).addClass('currentSelect');
-            }
-        })
-
-
-        $(document).on("click", ".selectBox", function() {
-				var ul = $(this).find("ul"),
-					display = ul.css("display");
-                    $('.shareShow').css('display','none');
-			 
-				display = display == "block" ? 0 : 1;
-				
-				$(".selectBox ul").css("display", "none");
-				
-				if (display) {
-					ul.css("display", "block");
-					display = 0;
-					ul.find("li").each(function() {
-						display += $(this).height();
-					});
-					ul.css("display", "none");
-					
-					if (display > 200) {
-						ul.css("height",200);
-						ul.css("overflow", "auto");
-					}
-					
-					ul.slideDown(100);
-				} else {
-					ul.slideUp();
-				}
-				
-				return false;
-			});
-			   
-			/**
-			 * 点击列表 文字和 value 上去
-			 */
-			$(document).on("click", ".selectBox ul li", function() {
-				var p = $(this).parent().parent().find("p");
-				
-				p.text($(this).find("a").text());
-				p.attr("value", $(this).attr("value"));
-				
-			});
-			
-			$(document).on("click", function() {
-				$(".selectBox ul").slideUp();
-			});
-            $(".newFolder").hover(function(){
-              $(".newFolder  i").css("background",'url(images/newFolder.png) 1px 0px no-repeat');
-                 })
-            $(".newFolder").mouseleave(function(){
-                $(".newFolder  i").css("background",'url(images/icons.png) -112px -26px no-repeat ');
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>14云盘-横向</title>
+    <link href="css/global.css" type="text/css" rel="stylesheet">
+    <!--全局样式表-->
+    <link href="css/yunpan.css" type="text/css" rel="stylesheet">
+    <!--页面部样式表-->
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //文件名、大小、日期排序
+            $(".Arrangement .xlStyle li").click(function () {
+                if ($(this).find("i").hasClass("choosed")) {
+                    $(this).find("i").removeClass("choosed")
+                } else {
+                    $(".xlStyle li").find("i").removeClass("choosed")
+                    $(this).find("i").addClass("choosed")
+                }
             })
-            $(".rightCz li a").hover(function(e){
-           if($(e.target).children("i").hasClass("instruction")){
-            $(".instruction").css("background-position",' 0px -109px');
-           }else if($(e.target).children("i").hasClass("client")){
-            $(".client").css("background-position",'-25px -110px');
-           } else if($(e.target).children("i").hasClass("recycle")){
-            $(".recycle").css("background-position",'0px -136px');
-           }
+
+            //分类排序
+            $(".classification .xlStyle li").click(function () {
+                if ($(this).find("i").hasClass("choosed")) {
+                    $(this).find("i").removeClass("choosed")
+                } else {
+                    $(".xlStyle li").find("i").removeClass("choosed")
+                    $(this).find("i").addClass("choosed")
+                }
+            })
+
+            //选择文件复选框
+            $(".checkbox").click(function () {
+                if ($(this).hasClass("zCheck")) {
+                    $(this).removeClass("zCheck")
+                } else {
+                    $(this).addClass("zCheck")
+                }
+            })
+
+
+            //点击分享出现分析界面。
+            $('.share').click(function () {
+                $('.shareShow').css('display', 'block');
+            })
+
+            $('.shareClose,.shareBtn2').click(function () {
+                $('.shareShow').css('display', 'none');
+            })
+
+
+
+            //树形结构的展开与收缩
+            $(".friends >span").click(function () {
+                if ($(this).hasClass('currentSpan')) {
+                    $(this).removeClass('currentSpan');
+                    $(this).next().next().css('display', 'none');
+                } else {
+                    $(this).addClass('currentSpan');
+                    if ($(this).next().next().hasClass('realFriend')) {
+                        $(this).next().next().css('display', 'flex');
+                    } else {
+                        $(this).next().next().css('display', 'block');
+                    }
+                }
+            })
+
+            //发给好友和分享链接的切换
+            $('.shareLink').click(function () {
+                if ($(".shareMiddle").css('display') == 'block') {
+                    $('.shareMiddle').css('display', 'none');
+                    $('.shareMiddleLink').css('display', 'block');
+                    $('.shareFriend').css('background-position', '-72px -55px');
+                    $('.shareLink').css('background-position', '-2px -121px');
+                    $('.currentLogo').css('left', '457px')
+                }
+            })
+            $('.shareFriend').click(function () {
+                if ($(".shareMiddleLink").css('display') == 'block') {
+                    $('.shareMiddleLink').css('display', 'none');
+                    $('.shareMiddle').css('display', 'block');
+                    $('.shareFriend').css('background-position', '-2px -58px');
+                    $('.shareLink').css('background-position', '-69px -124px');
+                    $('.currentLogo').css('left', '150px')
+                }
+            })
+
+            //分享方式的切换
+            $('.selectPointer').click(function () {
+                if ($(this).css('background-position-y') == '-33px') {
+                    $(this).css('background-position-y', '-3px');
+                    $('.selectPointer1').css('background-position-y', '-33px');
+                }
+            })
+            $('.selectPointer1').click(function () {
+                if ($(this).css('background-position-y') == '-33px') {
+                    $(this).css('background-position-y', '-3px');
+                    $('.selectPointer').css('background-position-y', '-33px');
+                }
+            })
+            //
+            $('.options li').click(function () {
+                if (!$(this).hasClass('currentSelect')) {
+                    $('.options').children('.currentSelect').removeClass('currentSelect');
+                    $(this).addClass('currentSelect');
+                }
+            })
+
+
+
+            $(document).on("click", ".selectBox", function () {
+                var ul = $(this).find("ul"),
+                    display = ul.css("display");
+                $('.shareShow').css('display', 'none');
+
+                display = display == "block" ? 0 : 1;
+
+                $(".selectBox ul").css("display", "none");
+
+                if (display) {
+                    ul.css("display", "block");
+                    display = 0;
+                    ul.find("li").each(function () {
+                        display += $(this).height();
+                    });
+                    ul.css("display", "none");
+
+                    if (display > 200) {
+                        ul.css("height", 200);
+                        ul.css("overflow", "auto");
+                    }
+
+                    ul.slideDown(100);
+                } else {
+                    ul.slideUp();
+                }
+
+                return false;
+            });
+
+            /**
+             * 点击列表 文字和 value 上去
+             */
+            $(document).on("click", ".selectBox ul li", function () {
+                var p = $(this).parent().parent().find("p");
+
+                p.text($(this).find("a").text());
+                p.attr("value", $(this).attr("value"));
+
+            });
+
+            $(document).on("click", function () {
+                $(".selectBox ul").slideUp();
+            });
+            $(".newFolder").hover(function () {
+                $(".newFolder  i").css("background", 'url(images/newFolder.png) 1px 0px no-repeat');
+            })
+            $(".newFolder").mouseleave(function () {
+                $(".newFolder  i").css("background", 'url(images/icons.png) -112px -26px no-repeat ');
+            })
+            $(".rightCz li a").hover(function (e) {
+                if ($(e.target).children("i").hasClass("instruction")) {
+                    $(".instruction").css("background-position", ' 0px -109px');
+                } else if ($(e.target).children("i").hasClass("client")) {
+                    $(".client").css("background-position", '-25px -110px');
+                } else if ($(e.target).children("i").hasClass("recycle")) {
+                    $(".recycle").css("background-position", '0px -136px');
+                }
+
+            })
+            $(".rightCz li a").mouseleave(function (e) {
+                if ($(e.target).children("i").hasClass("instruction")) {
+                    $(".instruction").css("background-position", 'left top');
+                } else if ($(e.target).children("i").hasClass("client")) {
+                    $(".client").css("background-position", '-25px top');
+                } else if ($(e.target).children("i").hasClass("recycle")) {
+                    $(".recycle").css("background-position", '-49px top');
+                }
+            })
+           var recycleInfosChildrenLen= $('.recycleInfos').children().length;
            
-       })
-       $(".rightCz li a").mouseleave(function(e){
-        if($(e.target).children("i").hasClass("instruction")){
-            $(".instruction").css("background-position",'left top');
-           }else  if($(e.target).children("i").hasClass("client")){
-            $(".client").css("background-position",'-25px top');
-           }else  if($(e.target).children("i").hasClass("recycle")){
-            $(".recycle").css("background-position",'-49px top');
-           }
-       })
-	})
-</script>
+           $('.recycleTipsBottom span').text(recycleInfosChildrenLen-1);
+        })
+    </script>
 </head>
 
 <body>
     <!-- <div class="pppppp"></div> -->
 
-<div class="shareShow">
+    <div class="shareShow">
 
-    <div class="shareTop">
-        <div class="shareFolder">分享文件（夹）：设计类专题等</div>
-        <div class="shareClose"></div>
-        <div class="shareTo">
-            <div class="shareFriend"></div>
-            <div class="shareLink"></div>
+        <div class="shareTop">
+            <div class="shareFolder">分享文件（夹）：设计类专题等</div>
+            <div class="shareClose"></div>
+            <div class="shareTo">
+                <div class="shareFriend"></div>
+                <div class="shareLink"></div>
+            </div>
+            <div class="currentLogo"></div>
         </div>
-        <div class="currentLogo"></div>
-    </div>
-    <div class="shareMiddle">
-        <div class="maxNum">
-            选择好友分享文件，一次最多选择50人
-            <span>已选择<span>1</span>人</span>
-        </div>
-        <div class="selectContent">
-            
-            <div class="leftContent">
-                <div class="friends" >
-                    <span></span>
-                    <div>单位通讯录</div>
-                </div>
-                <div class="friends" >
-                    <span></span>
-                    <div>共享通讯录</div>
-                </div>
-                <div class="friends" >
-                    <span class="currentSpan"></span>
-                    <div>我关注的人</div>
-                    <div class="friends" >
+        <div class="shareMiddle">
+            <div class="maxNum">
+                选择好友分享文件，一次最多选择50人
+                <span>已选择
+                    <span>1</span>人</span>
+            </div>
+            <div class="selectContent">
+
+                <div class="leftContent">
+                    <div class="friends">
+                        <span></span>
+                        <div>单位通讯录</div>
+                    </div>
+                    <div class="friends">
+                        <span></span>
+                        <div>共享通讯录</div>
+                    </div>
+                    <div class="friends">
                         <span class="currentSpan"></span>
-                        <div>美女美美美美美美美美美美美美</div>
-                        <div class="realFriend">
-                            <span  ></span>
-                            <div>美女美女美美美美美美美美美美女</div>
+                        <div>我关注的人</div>
+                        <div class="friends">
+                            <span class="currentSpan"></span>
+                            <div>美女美美美美美美美美美美美美</div>
+                            <div class="realFriend">
+                                <span></span>
+                                <div>美女美女美美美美美美美美美美女</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friends">
+                        <span></span>
+                        <div>关注我的人</div>
+                    </div>
+
+                </div>
+                <div class="rightContent">
+                    <div class="realFriend">
+                        <span></span>
+                        <div>美美女女</div>
+                    </div>
+                    <div class="realFriend">
+                        <span></span>
+                        <div>美女</div>
+                    </div>
+                    <div class="realFriend">
+                        <span></span>
+                        <div>美女</div>
+                    </div>
+                    <div class="realFriend">
+                        <span></span>
+                        <div>美女</div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="shareMiddleLink">
+            <div class="shareInfo">
+                <div class="shareType">
+                    <div class="share-open">
+                        <span>分享方式</span>
+                        <span class="selectPointer"></span>
+                        <span>公开</span>
+                        <span>任何人可查看和下载</span>
+                    </div>
+                    <div class="share-encrypt">
+                        <span class="selectPointer1"></span>
+                        <span>加密</span>
+                        <span>仅限拥有密码者可查看，更加隐私安全</span>
+                    </div>
+                </div>
+                <div class="effectiveTime">
+                    <span>有效时间</span>
+                    <div class="locateSelectBox">
+
+                        <strong class="selectBox" id="selectBox" onclick="clicked(this,event);">
+                            <p>永久有效</p>
+                            <ul class="options" style=" display:none;">
+                                <li class="currentSelect">
+                                    <a href="javascript:void(0)" onclick="checkIt(this);">永久有效
+                                        <span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" onclick="checkIt(this);">30天
+                                        <span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" onclick="checkIt(this);">7天
+                                        <span></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" onclick="checkIt(this);" class="Lastli">1天
+                                        <span></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shareBtn">
+            <div class="shareBtn1">分享</div>
+            <div class="shareBtn2">取消</div>
+        </div>
+        <div class="shareBottom">
+            <div> 配合净网行动，超星云盘严厉打击色情低俗等不良信息的传播行为，如发现，将封禁账号。 </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="wrap956">
+        <!--标题-->
+        <div class="rightTitle">
+            <ul class="rightCz">
+                <li>
+                    <a href="#">
+                        <i class="instruction"></i>使用说明</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="client"></i>客户端下载</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="recycle"></i>回收站</a>
+                </li>
+            </ul>
+            <ul class="fontTitle">
+                <li class="cur">
+                    <a href="javascript:;">我的云盘</a>
+                </li>
+            </ul>
+        </div>
+        <!--标题-->
+        <!--操作栏-->
+        <div class="ypActionBar">
+            <a href="#" class="fr portrait" title="纵向排列"></a>
+            <div class="fr Arrangement">
+                <p></p>
+                <ul class="xlStyle">
+                    <li>
+                        <i class="choosed"></i>文件名</li>
+                    <li>
+                        <i></i>大小</li>
+                    <li>
+                        <i></i>日期</li>
+                </ul>
+            </div>
+            <div class="fr classification">
+                <p>分类
+                    <i></i>
+                </p>
+                <ul class="xlStyle">
+                    <li>
+                        <i class="choosed"></i>全部</li>
+                    <li>
+                        <i></i>图片</li>
+                    <li>
+                        <i></i>音乐</li>
+                    <li>
+                        <i></i>视频</li>
+                    <li>
+                        <i></i>文档</li>
+                    <li>
+                        <i></i>其他</li>
+                </ul>
+            </div>
+            <div class="search fr">
+                <input type="text" placeholder="搜索您的文件" class="input">
+                <input type="submit" class="fr sub" value=" " />
+            </div>
+            <a href="#" class="blueBgBtn fl">
+                <i class="upload"></i>上传</a>
+            <a href="#" class="newFolder fl">
+                <i></i>新建文件夹</a>
+            <a href="#" class="fl download">下载</a>
+            <a href="#" class="fl move">移动</a>
+            <a href="#" class="fl move">重命名</a>
+            <a href="#" class="fl move share">分享</a>
+            <a href="#" class="fl delete">删除</a>
+        </div>
+        <!--操作栏-->
+        <p class="allFolder">
+            <a href="#">全部文件</a>
+        </p>
+        <p class="yxFile">
+            <span class="checkbox"></span>已选择1个文件/文件夹</p>
+        <div class="hxList">
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl class="ypChecked">
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/excel_03.jpg" width="46" height="46">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="temp/head.jpg" width="46" height="46">
+                    </a>
+                    <i class="ypcheck"></i>
+                    <b class="play"></b>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/excel_03.jpg" width="46" height="46">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="temp/head.jpg" width="46" height="46">
+                    </a>
+                    <i class="ypcheck"></i>
+                    <b class="play"></b>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/wjj.png" width="52" height="43">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="images/excel_03.jpg" width="46" height="46">
+                    </a>
+                    <i class="ypcheck"></i>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板企业网站模板</a>
+                </dd>
+            </dl>
+            <dl>
+                <dt>
+                    <a href="#">
+                        <img src="temp/head.jpg" width="46" height="46">
+                    </a>
+                    <i class="ypcheck"></i>
+                    <b class="play"></b>
+                </dt>
+                <dd>
+                    <a href="#">企业网站模板企业网站模板</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+    
+    <div class="recycleDel">
+        <div class="recycleDelTop">
+            <div>还原文件</div>
+        </div>
+        <div class="recycleMiddle">
+            <div class="recycleTips">
+                还原的位置已经包含了同名的文件，请选择你的操作
+            </div>
+            <div class="recycleMaainContent">
+                <div class="recycleTopInfo">
+                    <div class="fileTips">已有文件：</div>
+                    <div class="fileInfo">
+                        <span class="fileImgLogo"></span>
+                        <div class="fileInfos">
+                            <div class="filefileDesc">云盘客户端简易使用说明.pdf</div>
+                            <div class="filefileDesc">大小：8.2M 创建日期：2017-09-16 12:24</div>
                         </div>
                     </div>
                 </div>
-                <div class="friends" >
-                    <span></span>
-                    <div>关注我的人</div>
-                </div>
-                
-            </div>
-            <div class="rightContent">
-                    <div class="realFriend">
-                            <span  ></span>
-                            <div>美美女女</div>
+                <div class="recycleInfos">
+                    <div class="fileTips">正在还原的文件：</div>
+                    <div class="fileInfo">
+                            <span  class="fileImgLogo"></span>
+                            <div class="fileInfos">
+                                <div class="filefileDesc">云盘客户端简易使用说明.pdf</div>
+                                <div class="filefileDesc">大小：8.2M  创建日期：2017-09-16 12:24</div>
+                            </div>
                         </div>
-                    <div class="realFriend">
-                            <span  ></span>
-                            <div>美女</div>
-                        </div>
-                    <div class="realFriend">
-                            <span  ></span>
-                            <div>美女</div>
-                        </div>
-                    <div class="realFriend">
-                            <span  ></span>
-                            <div>美女</div>
-                        </div>
-                    
-                    
-            </div>
-        </div>
-    </div>  
-    <div class="shareMiddleLink">
-        <div class="shareInfo">
-            <div class="shareType">
-                <div class="share-open">
-                    <span>分享方式</span> 
-                    <span class="selectPointer"></span> 
-                    <span>公开</span> 
-                    <span>任何人可查看和下载</span> 
-                </div>
-                <div class="share-encrypt" >
-                    <span class="selectPointer1"></span>
-                    <span>加密</span>
-                    <span>仅限拥有密码者可查看，更加隐私安全</span>
-                </div>
-            </div>
-            <div class="effectiveTime">
-                    <span>有效时间</span>
-                    <div class="locateSelectBox">
-                        
-                    <strong class="selectBox" id="selectBox" onclick="clicked(this,event);">
-                            <p>永久有效</p>
-                            <ul class="options" style=" display:none;">
-                                <li class="currentSelect"><a href="javascript:void(0)" onclick="checkIt(this);">永久有效<span></span></a></li>
-                                <li><a href="javascript:void(0)" onclick="checkIt(this);">30天<span></span></a></li>
-                                <li><a href="javascript:void(0)" onclick="checkIt(this);">7天<span></span></a></li>
-                                <li><a href="javascript:void(0)" onclick="checkIt(this);" class="Lastli">1天<span></span></a></li>
-                            </ul>
-                        </strong>
                 </div>
             </div>
         </div>
-    </div>  
-    <div class="shareBtn">
-        <div class="shareBtn1">分享</div>
-        <div class="shareBtn2">取消</div>
-    </div>  
-    <div class="shareBottom">
-        <div> 配合净网行动，超星云盘严厉打击色情低俗等不良信息的传播行为，如发现，将封禁账号。  </div>
-    </div> 
-    
-</div>
-
-
-
-<div class="wrap956">
-	<!--标题-->
-	<div class="rightTitle">
-    	<ul class="rightCz">
-        	<li><a href="#"><i class="instruction"></i>使用说明</a></li>
-        	<li><a href="#"><i class="client"></i>客户端下载</a></li>
-        	<li><a href="#"><i class="recycle"></i>回收站</a></li>
-        </ul>
-    	<ul class="fontTitle">
-        	<li class="cur"><a href="javascript:;">我的云盘</a></li>
-        </ul>
-    </div>
-    <!--标题-->
-    <!--操作栏-->
-    <div class="ypActionBar">
-        <a href="#" class="fr portrait" title="纵向排列"></a>
-        <div class="fr Arrangement">
-        	<p></p>
-            <ul class="xlStyle">
-            	<li><i class="choosed"></i>文件名</li>
-                <li><i></i>大小</li>
-                <li><i></i>日期</li>
-            </ul>
+        <div class="recycleTipsBottom">
+            <input type="checkbox"> 其余的<span></span>个重命名文件都执行此操作
         </div>
-        <div class="fr classification">
-        	<p>分类<i></i></p>
-            <ul class="xlStyle">
-            	<li><i class="choosed"></i>全部</li>
-                <li><i></i>图片</li>
-                <li><i></i>音乐</li>
-                <li><i></i>视频</li>
-                <li><i></i>文档</li>
-                <li><i></i>其他</li>
-            </ul>
-        </div>
-        <div class="search fr">
-        	<input type="text" placeholder="搜索您的文件" class="input">
-            <input type="submit" class="fr sub" value=" " />
-        </div>
-    	<a href="#" class="blueBgBtn fl"><i class="upload"></i>上传</a>
-        <a href="#" class="newFolder fl"><i></i>新建文件夹</a>
-        <a href="#" class="fl download">下载</a>
-        <a href="#" class="fl move">移动</a>
-        <a href="#" class="fl move">重命名</a>
-        <a href="#" class="fl move share">分享</a>
-        <a href="#" class="fl delete">删除</a>
-    </div>
-    <!--操作栏-->
-   	<p class="allFolder"><a href="#">全部文件</a></p>
-    <p class="yxFile"><span class="checkbox"></span>已选择1个文件/文件夹</p>
-    <div class="hxList">
-    	<dl>
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl class="ypChecked">
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/excel_03.jpg" width="46" height="46"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="temp/head.jpg" width="46" height="46"></a><i class="ypcheck"></i><b class="play"></b></dt>
-            <dd><a href="#">企业网站模板企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/excel_03.jpg" width="46" height="46"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="temp/head.jpg" width="46" height="46"></a><i class="ypcheck"></i><b class="play"></b></dt>
-            <dd><a href="#">企业网站模板企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/wjj.png" width="52" height="43"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="images/excel_03.jpg" width="46" height="46"></a><i class="ypcheck"></i></dt>
-            <dd><a href="#">企业网站模板企业网站模板</a></dd>
-        </dl>
-        <dl>
-        	<dt><a href="#"><img src="temp/head.jpg" width="46" height="46"></a><i class="ypcheck"></i><b class="play"></b></dt>
-            <dd><a href="#">企业网站模板企业网站模板</a></dd>
-        </dl>
+        <div class="recycleBottom">
+                <div class="recycleBtns">
+                    <span class="recycleBtn">
+                        <span>替换文件</span>
+                    </span>
+                    <span class="recycleBtn">
+                        <span>保留两个文件</span>
+                    </span>
+                    <span class="recycleBtn recycleBtnCancer">
+                        <span>取消</span>
+                    </span>
+                </div>
+            </div>
     </div>
     
-</div>
+
+   
+
+    <!-- <div class="aaaaaa"> -->
+    <!-- <div class="bbbbbb"   >
+            <span>还原文件</span>
+    </div> -->
+    <!-- <div class="traceMiddle">
+
+    </div>
+    <div class="traceBottom" ></div> -->
+    <!-- </div> -->
+    <!-- <div class="trace1" >advadvadvasdc</div> -->
 </body>
+
 </html>

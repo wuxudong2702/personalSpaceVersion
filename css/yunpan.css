@@ -475,10 +475,7 @@
   }
   .middle .sideContent{
     flex:1;
-    
-  
     background: #f3f3f3;
-  
   }
   .middle .mainContent{
     width:1201px;
@@ -504,12 +501,139 @@
   }
   
   
+ 
+  .aaaaaa {
+    -webkit-user-select: none;
+    user-select: none;
+    border-width: 1px;
+   
+    border-radius: 4px;
+    width: 602px;
+    height: 480px;
+    z-index: 3;
+    padding: 0px;
+    position: relative;
+    top:-30px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 1);
+    font-family: "Microsoft Yahei", "微软雅黑", "Helvetica Neue", "Hiragino Sans GB", Helvetica, Tahoma, sans-serif;
+    text-shadow: 1px 0 0 rgba(255, 255, 255, .7);
+}
+.recycleDel{
+    background-color: rgba(255, 255, 255, 1);
+    width: 602px;
+    height: 480px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 1);;
+    top:100px;
+    left:300px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 4px 4px rgba(218, 218, 218, 0.6);
+    font-size: 14px;
+}
+.recycleDelTop{
+    height:61px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    
+    border-bottom:1px solid  #d6ebff;
+     background-color: #f5faff;
+}
+.recycleDelTop div{
+     
+    margin-left:19px;
+   
+}
+.recycleMiddle{
+    width:100%;
+    /* height:320px; */
+}
+
+.recycleTips{
+    margin-top:29px;
+    margin-left:60px;
+    margin-bottom:30px;
+    /* background-color: lightcyan; */
+}
+ .recycleMaainContent{
+     background-color:#f5f6f8;
+     margin:0 auto;
+     width:548px;
+     height:210px;
+    
+ }
+ .recycleTopInfo{
+     padding-top:18px;
+     margin-left:30px;
+ }
+ .fileImgLogo{
+    width:36px;
+    height:36px;
+    /* display:inline-block; */
+    background:url(../images/pdfsm.png) no-repeat ;
+    margin-right:8px;
+    /* background-color: red; */
+ }
+ .fileInfo{
+     margin-top:20px;
+     margin-left:15px;
+     display:flex;
+
+ }
+ 
+ .recycleTipsBottom{
+    margin-top:18px;
+    margin-left:67px;
+ }
+   
+ .recycleTipsBottom input{
+   width:14px;
+   height:14px;
+   border:1px solid #d3dce5;
+   margin-right:6px;
+   /* background-color: white; */
+ }
+
+
+
+ .recycleInfos{
+    padding-top:20px;
+    margin-left:30px;
+ }
+ .recycleBottom{
+    height:86px;
+    width:100%;
+    margin-top:26px;
+    /* background-color: lightgrey; */
+   
+ }
+  .recycleBtns{
+   
+      padding-left:214px; 
+      display:flex;
+      align-items: center;
+      justify-content: center;
+  }
   
-  
-  
-  
-  
-  
+  .recycleBtn{
+    background-color: #0099ff;
+      margin-right:30px; 
+      padding-left:18px;
+      padding-right:18px;
+      display:inline-block;
+      border-radius: 4px;
+      /* width:90px; */
+      color:white;
+      height:36px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .recycleBtnCancer{
+      color:#666666;
+    background-color: #e6e6e6;
+  }
   
   
    
